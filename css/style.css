@@ -53,17 +53,35 @@ li {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     height: 12rem;
-    width: 91.9rem; 
+    width: 91.9rem;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #212931;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #212931;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+#add-book,
+#close-popup {
+    font-size: 1.2rem;
+    height: 45px;
+    width: 150px;
+    background-color: #438145;
+    color: #fff;
 }
 
 /* Style the pop-up */
@@ -81,6 +99,11 @@ li {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+
+  #card-form {
+    display: flex;
+    flex-direction: column;
+  }
   
   /* Style the pop-up content */
   .popup-content {
@@ -92,7 +115,7 @@ li {
   
   /* Style the close button */
   #close-popup {
-    background-color: #ccc;
+    background-color: #a55050;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -102,7 +125,7 @@ li {
   
   /* Style the button that triggers the pop-up */
   #add-new-book {
-    background-color: #4CAF50;
+    background-color: #41aa45;
     color: #fff;
     border: none;
     padding: 10px 20px;

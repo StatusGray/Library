@@ -4,7 +4,6 @@ const bookAuthorInput = document.getElementById('book-author');
 const bookPagesInput = document.getElementById('book-pages');
 const bookReadInput = document.getElementById('book-read');
 const bookTitleInput = document.getElementById('book-title');
-const cards = document.querySelectorAll('.card');
 const closePopupButton = document.getElementById('close-popup');
 const openPopupButton = document.getElementById('add-new-book');
 const popup = document.getElementById('popup');
@@ -17,22 +16,6 @@ openPopupButton.addEventListener('click', () => {
 closePopupButton.addEventListener('click', () => {
     popup.style.display = 'none'; // Hide the pop-up
   });
-  
-cards.forEach(card => {
-    const deleteButton = card.querySelector('.delete');
-  
-    deleteButton.addEventListener('click', () => {
-      // Remove the card from the DOM
-      card.remove();
-})});
-
-// Creates new Book function 4 properties
-function Book (title, author, pages, read) { 
-    this.title = title.value; // Property: title
-    this.author = author.value; // Property: author
-    this.pages = pages; // Property: pages
-    this.read = read; // Property: read
-};
 
 // Add event listener to the "Add book" button
 addBookButton.addEventListener('click', (e) => {
@@ -42,7 +25,7 @@ addBookButton.addEventListener('click', (e) => {
   const title = bookTitleInput.value;
   const author = bookAuthorInput.value;
   const pages = bookPagesInput.value;
-  const read = bookReadInput.value;
+  let isRead = false;
 
   // Create a new card element
   const card = document.createElement('div');
@@ -53,7 +36,7 @@ addBookButton.addEventListener('click', (e) => {
     <h1>${title}</h1>
     <p>Author: ${author}</p>
     <p>Pages: ${pages}</p>
-    <button class="r-btn">Read</button>
+    <button class="r-btn">${isRead ? 'Read' : 'Not Read'}</button>
     <button class="delete">Remove</button>
   `;
 
@@ -67,52 +50,25 @@ addBookButton.addEventListener('click', (e) => {
   bookTitleInput.value = '';
   bookAuthorInput.value = '';
   bookPagesInput.value = '';
-  bookReadInput.value = '';
 
   popup.style.display = 'none';
+
+  // Add an event listener to the delete button to remove the card
+  card.addEventListener('click', (e) => {
+    // Check if the clicked element is the delete button
+    if (e.target.classList.contains('delete')) {
+      // Remove the card from the card container
+      cardContainer.removeChild(card);
+    }
+  });
+
+  // Add an event listener to the "Read" button to toggle the read status
+  card.addEventListener('click', (e) => {
+    if(e.target.classList.contains('r-btn')){
+      isRead = !isRead;
+      e.target.textContent = isRead ? 'Read' : 'Not Read';
+    }
+  })
 });
 
 
-
-// function createBookCard() {
-//     const cardHTML = document.createElement('div');
-//     cardHTML.innerHTML = `
-//     <div class="card">
-//     <h1>${this.title}</h1>
-//         <p>Author: ${this.author}</p>
-//         <p>Pages: ${this.pages}</p>
-//         <p>Read: ${this.read}</p>
-//         <button class="r-btn">Read</button>
-//         <button class="delete">Remove</button>
-//         </div>
-//     `;
-//     return cardHTML;
-// };
-
-// cardForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const title = bookTitle.value;
-//   const author = bookAuthor.value;
-//   const pages = bookPages.value;
-//   const read = bookRead.value; 
-
-//   const newBook = new Book(title, author, pages, read);
-//   const bookCard = newBook.createBookCard();
-//   bookList.appendChild(bookCard);
-  
-//   // clear input fields
-//   bookTitle.value = '';
-//   bookAuthor.value = '';
-//   bookPages.value = '';
-//   bookRead.value = '';
-
-//   popup.style.display = 'none';
-
-// })
-
-
-// Description: Creates a new Book object with the specified properties 
-// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
-
-// Logs the information about the book to the console
-// console.log(theHobbit.info()); // The Hobbit by J.R.R. Tolkien,
