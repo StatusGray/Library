@@ -66,6 +66,7 @@ let cardContainerCounter = 0;
   // Get the current card container
   let currentCardContainer;
 
+  // checks if the cardContainerParent is returning null
   const cardContainerParent = document.querySelector('.card-container-parent');
   if (!cardContainerParent) {
     console.error("cardContainerParent is null");
@@ -85,6 +86,7 @@ if (currentCardContainer.childElementCount >= 4) {
   // Create a new card container
   const newCardContainer = document.createElement('div');
 
+  // checks if this is returning null
   if (!newCardContainer) {
     console.error("newCardContainer is null");
     return;
