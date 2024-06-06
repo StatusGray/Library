@@ -21,31 +21,33 @@
     </header>
     <div class="container">
           <section class="main-content">
-        <div id="popup">
-          <div class="popup-content">
-            <h2>Add a new book</h2>
-            <form id="card-form">
-              <label for="book-title">Title:</label>
-              <input type="text" id="book-title" name="book-title" />
-              <br>
-              <label for="book-author">Author:</label>
-              <input type="text" id="book-author" name="book-author" />
-              <br>
-              <label for="book-pages">Pages:</label>
-              <input type="number" id="book-pages" name="book-pages" />
-              <br>
-              <label for="book-read">Read:</label>
-              <input type="checkbox" id="book-read" /> 
-              <br>
-              <div class="button-container">
-                <button type="submit" id="add-book">Add Book</button>
-                <button id="close-popup">Close</button>
+            <div class="card-container-parent">
+              <div class="card-container">
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="card-container">
-        </div>
+            <div id="popup">
+              <div class="popup-content">
+                <h2>Add a new book</h2>
+                <form id="card-form">
+                  <label for="book-title">Title:</label>
+                  <input type="text" id="book-title" name="book-title" />
+                  <br>
+                  <label for="book-author">Author:</label>
+                  <input type="text" id="book-author" name="book-author" />
+                  <br>
+                  <label for="book-pages">Pages:</label>
+                  <input type="number" id="book-pages" name="book-pages" />
+                  <br>
+                  <label for="book-read">Not Read:</label>
+                  <input type="checkbox" id="book-read" /> 
+                  <br>
+                  <div class="button-container">
+                    <button type="submit" id="add-book">Add Book</button>
+                    <button id="close-popup">Close</button>
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
     </section>
       </div>
     <script src="js/script.js"></script>
