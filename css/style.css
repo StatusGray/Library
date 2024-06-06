@@ -58,6 +58,7 @@ li {
 }
 
 .card {
+    height: 175px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
